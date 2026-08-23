@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotizador Pro</title>
+    <style>
+        html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
+        iframe { width: 100%; height: 100%; border: none; display: block; }
+    </style>
+</head>
+<body>
+    <iframe id="appFrame"></iframe>
+
+    <script>
+        // AQUÍ AGREGAS A TUS CLIENTES NUEVOS SÓLO ESCRIBIENDO SU NOMBRE Y SU LINK DE EXEC:
+        const baseDeClientes = {
+            "ipsanjuan": "https://script.google.com/macros/s/AKfycbx84deOsWPGZhP0a8YGH6sMs-cOKwOhHCc-iOzj3f7N7yTD7C8t-5wYQEkaeP5f0qBdBA/exec",
+            //"cliente2": "PEGA_AQUI_EL_LINK_DE_CLIENTE_2_EXEC"
+            // Cuando sumes al cliente 3, solo escribes:
+            // "cliente3": "LINK_EXEC" debajo de este.
+        };
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const clienteKey = urlParams.get('app') || "ipsanjuan";
+        
+        document.getElementById('appFrame').src = baseDeClientes[clienteKey] || baseDeClientes["ipsanjuan"];
+    </script>
+</body>
+</html>
